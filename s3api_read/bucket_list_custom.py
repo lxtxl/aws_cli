@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from common.execute_command import read_no_parameter
+from common.execute_command import read_no_parameter_custom
 
 # url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html
 if __name__ == '__main__':
@@ -61,4 +61,4 @@ if __name__ == '__main__':
     # custom parameter
     add_option_dict["output"] = output_name
     add_option_dict["query"] = change_query_name
-    read_no_parameter("s3api", "list-buckets", add_option_dict)
+    read_no_parameter_custom("s3api", "list-buckets", add_option_dict)

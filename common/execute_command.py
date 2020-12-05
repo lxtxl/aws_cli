@@ -120,10 +120,10 @@ def make_setting_options(profile_name, kwargs):
     return []
 
 
-def write_one_parameter(service_name, command_name, unique_name, **kwargs):
+def write_one_parameter(service_name, command_name, unique_name, add_option_dict):
     parameter_num = len(sys.argv)
 
-    no_value_parameter_list, parameter_display_string = find_add_options(kwargs)
+    no_value_parameter_list, parameter_display_string, output_string, query_string = find_add_options(add_option_dict)
 
     if parameter_num != 3:
         print("config value is not exist")
@@ -138,15 +138,21 @@ def write_one_parameter(service_name, command_name, unique_name, **kwargs):
         replace_unique_name = "--" + unique_name
         add_parameter_list = [replace_unique_name, unique_value]
         add_parameter_list = add_parameter_list + no_value_parameter_list
+        if output_string != None:
+            add_parameter_list.append("--output")
+            add_parameter_list.append(output_string)
+        if query_string != None:
+            add_parameter_list.append("--query")
+            add_parameter_list.append(query_string)
         execute_process(profile_name, service_name, command_name, add_parameter_list)
     else:
         sys.exit()
 
 
-def write_two_parameter(service_name, command_name, unique1_name, unique2_name, **kwargs):
+def write_two_parameter(service_name, command_name, unique1_name, unique2_name, add_option_dict):
     parameter_num = len(sys.argv)
 
-    no_value_parameter_list, parameter_display_string = find_add_options(kwargs)
+    no_value_parameter_list, parameter_display_string, output_string, query_string = find_add_options(add_option_dict)
     if parameter_num != 4:
         print("config value is not exist")
         print("Usage: python {} <config> <{}> <{}>".format(sys.argv[0], unique1_name, unique2_name))
@@ -157,9 +163,20 @@ def write_two_parameter(service_name, command_name, unique1_name, unique2_name, 
     unique2_value = sys.argv[3]
     answer = input("Enter yes or no: ")
     if answer == "yes":
+        add_parameter_list = []
         replace_unique1_name = "--" + unique1_name
         replace_unique2_name = "--" + unique2_name
-        execute_process(profile_name, service_name, command_name, [replace_unique1_name, unique1_value, replace_unique2_name, unique2_value])
+        add_parameter_list.append(replace_unique1_name)
+        add_parameter_list.append(unique1_value)
+        add_parameter_list.append(replace_unique2_name)
+        add_parameter_list.append(unique2_value)
+        if output_string != None:
+            add_parameter_list.append("--output")
+            add_parameter_list.append(output_string)
+        if query_string != None:
+            add_parameter_list.append("--query")
+            add_parameter_list.append(query_string)
+        execute_process(profile_name, service_name, command_name, add_parameter_list)
     else:
         sys.exit()
 

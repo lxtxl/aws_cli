@@ -22,6 +22,7 @@ if __name__ == '__main__':
     # parameter display string
     add_option_dict["parameter_display_string"] = parameter_display_string
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     write_one_parameter("s3api", "delete-bucket", "bucket", add_option_dict)
 
 

@@ -47,12 +47,12 @@ def execute_process(profile_name, service_name, command_name, add_parameter_list
     common_parameter_value = setting_default_command_parameter(settings)
 
     aws_command_list = ["aws", service_name, command_name]
-    
-    aws_command_list.append(common_parameter_value)
+
     if "--output" not in add_parameter_list:
         aws_command_list.append("--output")
         aws_command_list.append(settings["output"])
     aws_command_list = aws_command_list + add_parameter_list
+    aws_command_list.append(common_parameter_value)
     execute_command = " ".join(aws_command_list)
 
     result_path = settings['result_path']
