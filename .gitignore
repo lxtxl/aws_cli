@@ -1,0 +1,10 @@
+.idea/
+venv/
+__pycache__/
+*/*.pyc
+*.json
+*.log
+result*/
+.DS_Store
+common/__pycache__/*.pyc
+database.sqlite3

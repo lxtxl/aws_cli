@@ -1,0 +1,7 @@
+{
+    "profile": "${PROFILE_NAME}",
+    "region": "ap-northeast-2",
+	"output": "table",
+    "owner_id": "xxxxxxx",
+    "vpc_id": "vpc-xxxxxxxxxx"
+}

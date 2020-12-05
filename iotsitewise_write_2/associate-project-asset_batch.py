@@ -1,0 +1,22 @@
+#!/usr/bin/python
+# -*- codding: utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from common.execute_command import write_two_parameter
+
+# url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/batch-associate-project-assets.html
+if __name__ == '__main__':
+    """
+
+    """
+
+    parameter_display_string = """
+    # project-id : The ID of the project to which to associate the assets.
+    # asset-ids : The IDs of the assets to be associated to the project.
+(string)
+    """
+    add_option_dict = {}
+    add_option_dict["parameter_display_string"] = parameter_display_string
+    # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+    write_two_parameter("iotsitewise", "batch-associate-project-assets", "project-id", "asset-ids", add_option_dict)

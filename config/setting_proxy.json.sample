@@ -1,0 +1,9 @@
+{
+    "is_proxy": true,
+    "is_filter": true,
+    "proxy_ip": "127.0.0.1",
+    "proxy_port": 8080,
+    "debug": false,
+    "is_write": true,
+    "default_template": "base"
+}

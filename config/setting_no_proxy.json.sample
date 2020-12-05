@@ -1,0 +1,7 @@
+{
+    "is_proxy": false,
+    "is_filter": false,
+    "debug": false,
+    "is_write": true,
+    "default_template": "base"
+}
