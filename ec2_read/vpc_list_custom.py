@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from common.execute_command import read_no_parameter
+from common.execute_command import read_no_parameter_custom
 
 # url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpcs.html
 if __name__ == '__main__':
@@ -63,4 +63,4 @@ if __name__ == '__main__':
     add_option_dict["output"] = output_name
     add_option_dict["query"] = change_query_name
 
-    read_no_parameter(profile_name, "ec2", "describe-vpcs", output_name, change_query_name)
+    read_no_parameter_custom("ec2", "describe-vpcs", add_option_dict)

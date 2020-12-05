@@ -5,6 +5,5 @@
     "proxy_port": 8080,
     "debug": false,
     "is_write": true,
-    "default_template": "base",
-    "result_path": "result_YYYYMMDD"
+    "default_template": "base"
 }

@@ -43,6 +43,12 @@ python ec2_read_1/instance_get.py innotree <<instance_id>>
 HHMMSS_<project_name>>_ec2_describe_instances.text 로 생성
 ```
 
+## 여러 파라미터가 있는 경우 generate 파일 생성을 위해서는 프로젝트명 대신에 gen을 넣으면 파일이 생성함
+python ec2_write/vpc_create.py gen
+
+# ec2 정보 가져오기
+ls -al | awk '{print $9}' > ../get_ec2.sh
+
 # 내가 바라는 것
 1. 명령어를 쉽게 쓸수 있어야 한다.
 2. 명령어에 대해서 결과를 이력에 남겨야 한다.

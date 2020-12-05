@@ -6,19 +6,35 @@ from common.common_command import execute_process, execute_generate
 from common.config_util import read_work_profile_file, read_setting_file
 from common.common_util import lprint
 
-def read_one_parameter(service_name, command_name, unique_name, parameter_display_string):
+def read_one_parameter(service_name, command_name, unique_name, add_option_dict, is_custom_check = False):
     parameter_num = len(sys.argv)
 
-    if parameter_num != 3:
-        print("config value is not exist")
-        print("Usage: python {} <config> <{}>".format(sys.argv[0], unique_name))
-        print(parameter_display_string)
-        sys.exit(1)
+    no_value_parameter_list, parameter_display_string, output_string, query_string = find_add_options(add_option_dict)
+    if not is_custom_check:
+        if parameter_num != 3:
+            print("config value is not exist")
+            print("Usage: python {} <config> <{}>".format(sys.argv[0]), unique_name)
+            sys.exit(1)
 
     profile_name = sys.argv[1]
     unique_value = sys.argv[2]
-    replace_unique_name = "--" + unique_name
-    execute_process(profile_name, service_name, command_name, [replace_unique_name, unique_value])
+
+    add_parameter_list = []
+    if profile_name == "gen":
+        return execute_generate(service_name, command_name)
+    else:
+        replace_unique_name = "--" + unique_name
+        option_list = make_setting_options(profile_name, add_option_dict)
+        add_parameter_list.append(replace_unique_name)
+        add_parameter_list.append(unique_value)
+        add_parameter_list = add_parameter_list + option_list
+        if output_string != None:
+            add_parameter_list.append("--output")
+            add_parameter_list.append(output_string)
+        if query_string != None:
+            add_parameter_list.append("--query")
+            add_parameter_list.append(query_string)
+        return execute_process(profile_name, service_name, command_name, add_parameter_list)
 
 def execute_two_parameter(service_name, command_name, unique_name, unique2_name, parameter_display_string):
     parameter_num = len(sys.argv)
@@ -38,6 +54,9 @@ def execute_two_parameter(service_name, command_name, unique_name, unique2_name,
 
 def read_no_parameter_custom(service_name, command_name, add_option_dict):
     return read_no_parameter(service_name, command_name, add_option_dict, True)
+
+def read_one_parameter_custom(service_name, command_name, unique_name, add_option_dict):
+    return read_one_parameter(service_name, command_name, unique_name, add_option_dict, True)
 
 def read_no_parameter(service_name, command_name, add_option_dict, is_custom_check = False):
     parameter_num = len(sys.argv)
@@ -172,18 +191,3 @@ def write_parameter(service_name, command_name):
             sys.exit()
     else:
         execute_generate(service_name, command_name)
-
-
-def read_one_parameter_custom(profile_name, service_name, command_name, unique_name, output, query):
-    replace_unique_name = "--" + unique_name
-    unique_value = sys.argv[2]
-    add_parameter_list = []
-    add_parameter_list.append(replace_unique_name)
-    add_parameter_list.append(unique_value)
-    add_parameter_list.append(output)
-    add_parameter_list.append("--output")
-    add_parameter_list.append(output)
-    add_parameter_list.append("--query")
-    add_parameter_list.append(query)
-    execute_process(profile_name, service_name, command_name, add_parameter_list)
-

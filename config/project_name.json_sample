@@ -3,5 +3,6 @@
     "region": "ap-northeast-2",
 	"output": "table",
     "owner_id": "xxxxxxx",
-    "vpc_id": "vpc-xxxxxxxxxx"
+    "vpc_id": "vpc-xxxxxxxxxx",
+    "result_path": "result_YYYYMMDD"
 }

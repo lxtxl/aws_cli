@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from common.execute_command import read_no_parameter
+from common.execute_command import read_no_parameter_custom
 
 # url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/describe-ssl-policies.html
 if __name__ == '__main__':
@@ -57,4 +57,4 @@ if __name__ == '__main__':
     # custom parameter
     add_option_dict["output"] = output_name
     add_option_dict["query"] = change_query_name
-    read_no_parameter(profile_name, "elbv2", "describe-ssl-policies", add_option_dict)
+    read_no_parameter_custom("elbv2", "describe-ssl-policies", add_option_dict)

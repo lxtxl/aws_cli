@@ -3,6 +3,5 @@
     "is_filter": false,
     "debug": false,
     "is_write": true,
-    "default_template": "base",
-    "result_path": "result_YYYYMMDD"
+    "default_template": "base"
 }

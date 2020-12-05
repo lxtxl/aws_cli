@@ -66,4 +66,4 @@ if __name__ == '__main__':
     add_option_dict["output"] = output_name
     add_option_dict["query"] = change_query_name
 
-    read_no_parameter(profile_name, "lambda", "list-functions", add_option_dict)
+    read_no_parameter_custom("lambda", "list-functions", add_option_dict)
