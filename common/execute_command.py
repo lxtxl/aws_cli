@@ -13,7 +13,7 @@ def read_one_parameter(service_name, command_name, unique_name, add_option_dict,
     if not is_custom_check:
         if parameter_num != 3:
             print("config value is not exist")
-            print("Usage: python {} <config> <{}>".format(sys.argv[0]), unique_name)
+            print("Usage: python {} <config> <{}>".format(sys.argv[0], unique_name))
             sys.exit(1)
 
     profile_name = sys.argv[1]

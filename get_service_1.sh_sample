@@ -1,0 +1,2 @@
+# s3api_read 에 대해서 BUCKET_NAME 만들기
+ls -al s3api_read_1 | awk '{printf "python s3api_read_1/%s $PROFILE_NAME $BUCKET_NAME\n", $9}' > get_s3api_1.sh
