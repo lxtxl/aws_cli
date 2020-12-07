@@ -17,6 +17,7 @@ if __name__ == '__main__':
     if parameter_num != 3:
         print("config value is not exist")
         print("Usage: python {} <config> <template>".format(sys.argv[0]))
+        print("    template : base, uid")
         sys.exit(1)
 
     profile_name = sys.argv[1]

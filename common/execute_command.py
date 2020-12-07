@@ -107,16 +107,17 @@ def find_add_options(add_option_dict):
             query_string = value
     return no_value_parameter_list, parameter_display_string, output_string, query_string
 
-def make_setting_options(profile_name, kwargs):
+def make_setting_options(profile_name, add_option_dict):
     setting_matching_parameter = None
     setting_key = None
-    if "setting_key" in kwargs.keys():
-        setting_matching_parameter = kwargs["setting_matching_parameter"]
-        setting_key = kwargs["setting_key"]
+    if "setting_key" in add_option_dict.keys():
+        setting_matching_parameter = add_option_dict["setting_matching_parameter"]
+        setting_key = add_option_dict["setting_key"]
         settings = read_setting(profile_name)
         if setting_key not in settings.keys():
             return None
-        return [setting_matching_parameter, settings[setting_key]]
+        replace_sentence = setting_matching_parameter.replace("$$", settings[setting_key])
+        return [replace_sentence]
     return []
 
 

@@ -19,7 +19,7 @@ if __name__ == '__main__':
     add_option_dict = {}
     #######################################################################
     # setting option use
-    add_option_dict["setting_matching_parameter"] = "--owners"
+    add_option_dict["setting_matching_parameter"] = "--owners $$"
     add_option_dict["setting_key"] = "owner_id"
 
     #######################################################################
