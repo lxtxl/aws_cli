@@ -203,7 +203,7 @@ def write_parameter(service_name, command_name):
             sys.exit()
         if answer == "yes":
             add_parameter_list.append("--cli-input-json")
-            add_parameter_list.append(input_filename)
+            add_parameter_list.append("file://" + input_filename)
             execute_process(profile_name, service_name, command_name, add_parameter_list)
         else:
             sys.exit()

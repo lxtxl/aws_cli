@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from common.execute_command import write_one_parameter
+from common.execute_command import write_one_parameter, read_one_parameter
 
 # url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/terminate-instances.html
 if __name__ == '__main__':
@@ -29,6 +29,8 @@ Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
     # parameter display string
     add_option_dict["parameter_display_string"] = parameter_display_string
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
+    read_one_parameter("ec2", "describe-instances", "instance-ids", add_option_dict)
     write_one_parameter("ec2", "terminate-instances", "instance-ids", add_option_dict)
 
 

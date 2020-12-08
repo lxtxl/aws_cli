@@ -21,4 +21,19 @@ if __name__ == '__main__':
     parameter_display_string = """
         instance-ids : instance id
     """
-    read_one_parameter("ec2", "describe-instances", "instance-ids", parameter_display_string)
+
+    add_option_dict = {}
+    #######################################################################
+    # setting option use
+    # ex: add_option_dict["setting_matching_parameter"] = "--owners"
+    # ex: add_option_dict["setting_key"] = "owner_id"
+
+    #######################################################################
+    # single parameter
+    # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
+    #######################################################################
+    # parameter display string
+    add_option_dict["parameter_display_string"] = parameter_display_string
+
+    read_one_parameter("ec2", "describe-instances", "instance-ids", add_option_dict)
