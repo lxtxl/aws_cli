@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from common.execute_command import write_two_parameter
+from common.execute_command import write_three_parameter
 
 # url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html
 if __name__ == '__main__':
@@ -25,4 +25,4 @@ Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
     add_option_dict = {}
     add_option_dict["parameter_display_string"] = parameter_display_string
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
-    write_two_parameter("ec2", "create-security-group", "description", "group-name", add_option_dict)
+    write_three_parameter("ec2", "create-security-group", "vpc-id", "group-name", "description", add_option_dict)
