@@ -1,0 +1,20 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            InstanceTypes[*].[
+                InstanceType
+                ,VCpuInfo.DefaultVCpus
+                ,MemoryInfo.SizeInMiB
+            ]
+        \""""
+    elif template_name == "uid":
+        output_name = "text"
+        query_name = """\"
+            InstanceTypes[*].[
+                InstanceType
+            ]
+        \""""
+    else:
+        print("Usage : {} template name is not exist".format(template_name))
+        print("Support template : base, uid")
+        sys.exit(1)

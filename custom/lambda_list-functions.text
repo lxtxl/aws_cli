@@ -1,0 +1,24 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            Functions[*].[
+                FunctionName
+                ,FunctionArn
+                ,Runtime
+                ,Role
+                ,Handler
+                ,Description
+                ,Timeout
+                ,MemorySize
+                ,LastModified
+                ,CodeSha256
+                ,Version
+                ,KMSKeyArn
+                ,MasterArn
+                ,RevisionId
+            ]
+        \""""
+    else:
+        print("Usage : {} template name is not exist".format(template_name))
+        print("Support template : base")
+        sys.exit(1)

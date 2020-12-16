@@ -23,4 +23,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("iam", "list-saml-providers", add_option_dict)

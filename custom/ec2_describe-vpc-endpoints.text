@@ -1,0 +1,30 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            VpcEndpoints[*].[
+                PolicyDocument
+                ,VpcId
+                ,State
+                ,ServiceName
+                ,VpcEndpointId
+                ,VpcEndpointType
+            ]
+        \""""
+    elif template_name == "uid":
+        output_name = "text"
+        query_name = """\"
+            VpcEndpoints[*].[
+                VpcEndpointId
+            ]
+        \""""
+    elif template_name == "policy":
+        output_name = "text"
+        query_name = """\"
+            VpcEndpoints[*].[
+                PolicyDocument
+            ]
+        \""""
+    else:
+        print("Usage : {} template name is not exist".format(template_name))
+        print("Support template : base, uid, policy")
+        sys.exit(1)

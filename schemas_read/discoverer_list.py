@@ -25,4 +25,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("schemas", "list-discoverers", add_option_dict)

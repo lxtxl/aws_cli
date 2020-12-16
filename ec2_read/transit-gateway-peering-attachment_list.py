@@ -23,4 +23,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("ec2", "describe-transit-gateway-peering-attachments", add_option_dict)

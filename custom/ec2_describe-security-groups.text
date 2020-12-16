@@ -1,0 +1,25 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            SecurityGroups[*].[
+                GroupId,
+                GroupName,
+                Description,
+                Tags[?Key=='Name'].Value|[0]
+            ]
+        \""""
+    elif template_name == "sg_info":
+        output_name = "table"
+        query_name = """\"
+            SecurityGroups[*].[
+                GroupId,
+                GroupName
+            ]
+        \""""
+    elif template_name == "uid":
+        output_name = "text"
+        query_name = """\"
+            SecurityGroups[*].[
+                GroupId
+            ]
+        \""""

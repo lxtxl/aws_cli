@@ -22,4 +22,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("cloudwatch", "list-dashboards", add_option_dict)

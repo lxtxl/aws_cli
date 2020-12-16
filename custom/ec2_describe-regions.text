@@ -1,0 +1,4 @@
+    if template_name == "base":
+        output_name = ""
+        query_name = """\"
+        \""""

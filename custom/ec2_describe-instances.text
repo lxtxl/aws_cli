@@ -1,0 +1,100 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    InstanceId
+                    ,ImageId
+                    ,InstanceType
+                    ,KeyName
+                    ,Monitoring.State
+                    ,Placement.AvailabilityZone
+                    ,PrivateIpAddress
+                    ,PublicIpAddress
+                    ,VpcId
+                    ,SubnetId
+                    ,SecurityGroups[].GroupName|join(',',@)
+                    ,BlockDeviceMappings[].DeviceName|join(',',@)
+                    ,State.Name
+                    ,EbsOptimized,
+                    Tags[?Key=='Name'].Value|[0]
+                ]
+            \"
+        """
+    elif template_name == "simple":
+        output_name = "table"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,PrivateIpAddress
+                    ,SecurityGroups[].GroupId|join(',',@)
+                    ,InstanceId
+                    ,InstanceType
+                    ,KeyName
+                ]
+            \"
+        """
+    elif template_name == "status":
+        output_name = "table"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,InstanceId
+                    ,State.Name                ]
+            \"
+        """
+    elif template_name == "type":
+        output_name = "table"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,InstanceId
+                    ,InstanceType                ]
+            \"
+        """
+    elif template_name == "ip":
+        output_name = "table"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,InstanceId
+                    ,PublicIpAddress
+                    ,PrivateIpAddress
+                ]
+            \"
+        """
+    elif template_name == "uid":
+        output_name = "text"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    InstanceId
+                ]
+            \"
+        """
+    elif template_name == "sg_id":
+        output_name = "text"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,InstanceId
+                    ,SecurityGroups[].GroupId|join(',',@)
+                ]
+            \"
+        """
+    elif template_name == "sg_name":
+        output_name = "text"
+        query_name = """\"
+            Reservations[*]
+                .Instances[*].[
+                    Tags[?Key=='Name'].Value|[0]
+                    ,InstanceId
+                    ,SecurityGroups[].GroupName|join(',',@)
+                ]
+            \"
+        """

@@ -1,0 +1,16 @@
+#!/usr/bin/python
+# -*- codding: utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from common.execute_command import write_parameter
+
+# url : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instances.html
+if __name__ == '__main__':
+    """
+	complete-multipart-upload : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/complete-multipart-upload.html
+	initiate-multipart-upload : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/initiate-multipart-upload.html
+	list-multipart-uploads : https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/list-multipart-uploads.html
+    """
+
+    write_parameter("glacier", "abort-multipart-upload")

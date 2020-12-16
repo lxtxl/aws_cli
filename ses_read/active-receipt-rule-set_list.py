@@ -20,4 +20,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_dict["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("ses", "describe-active-receipt-rule-set", add_option_dict)

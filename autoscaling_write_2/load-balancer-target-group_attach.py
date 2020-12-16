@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     parameter_display_string = """
     # auto-scaling-group-name : The name of the Auto Scaling group.
-    # target-group-arns : The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+    # target-group-arns : The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing DescribeTargetGroups API operation.
 (string)
     """
     add_option_dict = {}

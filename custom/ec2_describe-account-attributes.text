@@ -1,0 +1,8 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            AccountAttributes[*].[
+                AttributeName
+                ,AttributeValues[].AttributeValue|join(',',@)
+            ]
+        \""""

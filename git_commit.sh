@@ -3,9 +3,11 @@
 git add "*_read/*.py"
 git add "*_read_1/*.py"
 git add "*_read_2/*.py"
-git add "*_write/*.py"
+git add "*_read_3/*.py"
+git add "*_write_f/*.py"
 git add "*_write_1/*.py"
 git add "*_write_2/*.py"
+git add "*_write_3/*.py"
 git add "sample/*.template"
 git add make_list_all.py
 git add git_commit.sh

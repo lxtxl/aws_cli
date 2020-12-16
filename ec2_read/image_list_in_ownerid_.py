@@ -25,4 +25,5 @@ if __name__ == '__main__':
     #######################################################################
     # single parameter
     # ex: add_option_list["no_value_parameter_list"] = "--single-parameter"
+
     read_no_parameter("ec2", "describe-images", add_option_dict)

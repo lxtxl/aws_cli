@@ -1,0 +1,23 @@
+    if template_name == "base":
+        output_name = "table"
+        query_name = """\"
+            trailList[*].[
+                Name
+                ,TrailARN
+                ,InstanceId
+                ,IsMultiRegionTrail
+                ,S3BucketName
+                ,HomeRegion
+            ]
+        \""""
+    elif template_name == "uid":
+        output_name = "text"
+        query_name = """\"
+            trailList[*].[
+                TrailARN
+            ]
+        \""""
+    else:
+        print("Usage : {} template name is not exist".format(template_name))
+        print("Support template : base, uid")
+        sys.exit(1)
